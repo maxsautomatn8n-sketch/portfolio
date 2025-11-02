@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxime Goldstein - Automation Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #2d3748;
+        }
+
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #4a5568;
+        }
+
+        .skills {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .video-section {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-button {
+            display: inline-block;
+            background: white;
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .video-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-button svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .project-card .client {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .results {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .results h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .results ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .results li {
+            color: #4a5568;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .results li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Maxime Goldstein</h1>
+            <p>Automation Specialist | N8N Workflows & API Integrations</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Helping businesses save 10-20 hours per week through workflow automation</p>
+            <div class="contact-links">
+                <a href="mailto:maxime.automatn8n2025@gmail.com">📧 Email</a>
+                <a href="https://www.linkedin.com/in/maxime-goldstein-313265322" target="_blank">💼 LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I specialize in building and managing N8N workflows that automate repetitive business processes. 
+                With hands-on experience in production environments, I help businesses streamline operations, 
+                reduce manual work, and improve efficiency.
+            </p>
+            <p>
+                I've built automation solutions for HR platforms, payment systems, and business workflows, 
+                combining technical expertise with a focus on real-world results.
+            </p>
+            <div class="skills">
+                <span class="skill-tag">N8N Workflows</span>
+                <span class="skill-tag">API Integrations</span>
+                <span class="skill-tag">Telegram Bots</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Webhooks</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">LLM Prompts</span>
+                <span class="skill-tag">Debugging & Monitoring</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container">
+            <h2>Demo Video</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: #4a5568;">
+                Watch a walkthrough of my Telegram automation bot in action
+            </p>
+            <div style="text-align: center;">
+                <a href="https://www.loom.com/share/f7eb3ca100d54d2397a4024596404b2f" target="_blank" class="video-button">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" style="margin-bottom: 15px;">
+                        <circle cx="30" cy="30" r="30" fill="#667eea"/>
+                        <path d="M24 20L42 30L24 40V20Z" fill="white"/>
+                    </svg>
+                    <div style="font-size: 1.3rem; font-weight: 600; margin-bottom: 8px;">▶ Watch Demo Video</div>
+                    <div style="font-size: 0.95rem; opacity: 0.8;">Telegram Bot Automation (59 seconds)</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>HR Recruitment Automation Bot</h3>
+                    <p class="client">Client: Talenteum (Talent Platform)</p>
+                    <p>
+                        Built an N8N-powered Telegram bot that automates candidate registration, admin notifications, 
+                        and workflow synchronization. The bot runs in production and handles real candidate flows daily.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">N8N</span>
+                        <span class="tech-tag">Telegram API</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Webhooks</span>
+                    </div>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <ul>
+                            <li>95% of registrations automated</li>
+                            <li>10 hours/week saved for HR team</li>
+                            <li>Real-time admin notifications</li>
+                            <li>0 manual data entry errors</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Telegram Payment Bot</h3>
+                    <p class="client">Client: Business School Project</p>
+                    <p>
+                        Developed a recruitment bot with Telegram Stars payment integration for my business school. 
+                        The bot automates candidate onboarding, payment processing, and real-time notifications.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">N8N</span>
+                        <span class="tech-tag">Telegram Stars</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Railway</span>
+                    </div>
+                    <div class="results">
+                        <h4>Results:</h4>
+                        <ul>
+                            <li>95% of registrations automated</li>
+                            <li>10 hours/week saved on payment processing</li>
+                            <li>Secure native payments (Telegram Stars)</li>
+                            <li>Instant payment confirmation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Available for freelance automation projects and part-time remote work</p>
+            <a href="mailto:maxime.automatn8n2025@gmail.com" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Maxime Goldstein | Automation Specialist</p>
+            <p style="margin-top: 10px;">Paris, France 🇫🇷</p>
+        </div>
+    </footer>
+</body>
+</html>
