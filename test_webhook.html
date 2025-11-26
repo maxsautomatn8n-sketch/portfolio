@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Webhook N8N</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Webhook N8N</h1>
+        
+        <div class="info">
+            <strong>📝 Instructions :</strong>
+            <ol>
+                <li>Dans N8N, active ton workflow</li>
+                <li>Copie l'URL du webhook (ex: https://maxims-autoagents.app.n8n.cloud/webhook-test/voice-agent)</li>
+                <li>Colle-la ci-dessous</li>
+                <li>Clique sur "Tester"</li>
+            </ol>
+        </div>
+
+        <form id="testForm">
+            <div class="form-group">
+                <label for="webhookUrl">URL du Webhook N8N :</label>
+                <input 
+                    type="text" 
+                    id="webhookUrl" 
+                    placeholder="https://ton-instance.app.n8n.cloud/webhook-test/voice-agent"
+                    value="https://maxims-autoagents.app.n8n.cloud/webhook-test/voice-agent"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="clientName">Nom du client :</label>
+                <input type="text" id="clientName" value="Jean Dupont">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Téléphone :</label>
+                <input type="text" id="phone" value="0612345678">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" value="jean.dupont@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service :</label>
+                <input type="text" id="service" value="coupe homme">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date (AAAA-MM-JJ) :</label>
+                <input type="text" id="date" value="2025-11-27">
+            </div>
+
+            <div class="form-group">
+                <label for="time">Heure (HH:MM) :</label>
+                <input type="text" id="time" value="14:00">
+            </div>
+
+            <button type="submit">🚀 Tester le Webhook</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            const webhookUrl = document.getElementById('webhookUrl').value;
+            
+            // Préparer les données exactement comme ElevenLabs les envoie
+            const data = {
+                client_name: document.getElementById('clientName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                service: document.getElementById('service').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                notes: "Test depuis le formulaire HTML"
+            };
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result info';
+            resultDiv.innerHTML = '⏳ Envoi en cours...';
+            
+            try {
+                console.log('📤 Envoi des données:', data);
+                
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('📥 Réponse reçue:', response);
+                
+                const responseData = await response.json();
+                console.log('📋 Données de réponse:', responseData);
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `
+                        <strong>✅ Succès !</strong><br>
+                        Le webhook fonctionne correctement !<br><br>
+                        <strong>Réponse :</strong>
+                        <pre>${JSON.stringify(responseData, null, 2)}</pre>
+                    `;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `
+                        <strong>⚠️ Erreur ${response.status}</strong><br>
+                        Le webhook a répondu mais avec une erreur.<br><br>
+                        <strong>Réponse :</strong>
+                        <pre>${JSON.stringify(responseData, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                console.error('❌ Erreur:', error);
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <strong>❌ Erreur de connexion</strong><br>
+                    Impossible de joindre le webhook.<br><br>
+                    <strong>Erreur :</strong> ${error.message}<br><br>
+                    <strong>Vérifications :</strong>
+                    <ul>
+                        <li>Le workflow est-il activé dans N8N ?</li>
+                        <li>L'URL du webhook est-elle correcte ?</li>
+                        <li>Le webhook est-il en mode "Production" (pas "Test") ?</li>
+                    </ul>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
