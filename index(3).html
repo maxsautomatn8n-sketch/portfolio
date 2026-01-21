@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxime Goldstein - Spécialiste Automation & IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.1);
+        }
+
+        .lang-btn.active {
+            background: #667eea;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #2d3748;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: #e6f2ff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .results {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .results strong {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="switchLang('fr')" data-lang="fr">🇫🇷</button>
+        <button class="lang-btn" onclick="switchLang('en')" data-lang="en">🇺🇸</button>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Maxime Goldstein</h1>
+            <p class="subtitle" data-fr="Spécialiste Automation & IA | Bots Telegram | Workflows N8N" data-en="Automation & AI Specialist | Telegram Bots | N8N Workflows">Spécialiste Automation & IA | Bots Telegram | Workflows N8N</p>
+            <p class="tagline" data-fr="J'aide les entreprises à économiser 10-20 heures par semaine en automatisant leurs processus" data-en="I help businesses save 10-20 hours per week by automating their processes" style="font-size: 1.1rem;">J'aide les entreprises à économiser 10-20 heures par semaine en automatisant leurs processus</p>
+            <div class="contact-links">
+                <a href="/cdn-cgi/l/email-protection#a7cac6dfcecac289c0c8cbc3d4d3c2cec9e7cac6dfc6d2d3c8c99fc989c4c8ca">📧 Email</a>
+                <a href="https://www.linkedin.com/in/maxime-goldstein-313265322" target="_blank">💼 LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 class="projects-title" data-fr="Projets Récents" data-en="Recent Projects">Projets Récents</h2>
+            <div class="projects">
+                <!-- 1. MITPROSA -->
+                <div class="project-card">
+                    <h3>⌚ MITPROSA - <span data-fr="Blog Horlogerie de Luxe" data-en="Luxury Watch Blog">Blog Horlogerie de Luxe</span></h3>
+                    <p><strong data-fr="Client :" data-en="Client:">Client :</strong> <span data-fr="MITPROSA - Blog spécialisé horlogerie" data-en="MITPROSA - Specialized watch blog">MITPROSA - Blog spécialisé horlogerie</span></p>
+                    <p><strong data-fr="Défi :" data-en="Challenge:">Défi :</strong> <span data-fr="Maintenir une présence régulière sur un blog de niche sans y passer 10h/semaine" data-en="Maintain a regular presence on a niche blog without spending 10h/week">Maintenir une présence régulière sur un blog de niche sans y passer 10h/semaine</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Automatisation N8N qui génère et publie automatiquement 3 articles/semaine sur l'horlogerie de prestige + configuration WordPress optimisée pour recevoir ces publications" data-en="N8N automation that generates and publishes 3 articles/week automatically on luxury watches + optimized WordPress setup">Automatisation N8N qui génère et publie automatiquement 3 articles/semaine sur l'horlogerie de prestige + configuration WordPress optimisée pour recevoir ces publications</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Résultats :" data-en="Results:">Résultats :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="✅ 3 articles/semaine publiés automatiquement" data-en="✅ 3 articles/week published automatically">✅ 3 articles/semaine publiés automatiquement</li>
+                            <li data-fr="⏱️ 0 intervention manuelle" data-en="⏱️ 0 manual intervention">⏱️ 0 intervention manuelle</li>
+                            <li data-fr="📝 Contenu SEO optimisé sur les montres de luxe" data-en="📝 SEO-optimized content on luxury watches">📝 Contenu SEO optimisé sur les montres de luxe</li>
+                            <li data-fr="🌐 Site WordPress configuré et prêt à l'emploi" data-en="🌐 WordPress site configured and ready to use">🌐 Site WordPress configuré et prêt à l'emploi</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">OpenAI GPT-4</span>
+                        <span class="tech-badge">WordPress API</span>
+                        <span class="tech-badge">Google Sheets</span>
+                    </div>
+                </div>
+
+                <!-- 2. Talenteum -->
+                <div class="project-card">
+                    <h3>🤖 Talenteum - <span data-fr="Plateforme de Talents" data-en="Talent Platform Bot">Plateforme de Talents</span></h3>
+                    <p><strong data-fr="Client :" data-en="Client:">Client :</strong> <span data-fr="Talenteum - Plateforme de talent" data-en="Talenteum - Talent platform">Talenteum - Plateforme de talent</span></p>
+                    <p><strong data-fr="Défi :" data-en="Challenge:">Défi :</strong> <span data-fr="L'inscription manuelle prenait 10+ heures/semaine pour une équipe de 10 personnes" data-en="Manual candidate registration was taking 10+ hours per week for a team of 10 people">L'inscription manuelle prenait 10+ heures/semaine pour une équipe de 10 personnes</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Bot Telegram personnalisé qui automatise l'onboarding, la collecte de données et les notifications" data-en="Custom Telegram bot that automates talent onboarding, data collection, and notification system">Bot Telegram personnalisé qui automatise l'onboarding, la collecte de données et les notifications</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Résultats :" data-en="Results:">Résultats :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="✅ 95% des inscriptions automatisées" data-en="✅ 95% of registrations automated">✅ 95% des inscriptions automatisées</li>
+                            <li data-fr="⏱️ 10 heures/semaine économisées" data-en="⏱️ 10 hours/week saved for the team">⏱️ 10 heures/semaine économisées</li>
+                            <li data-fr="📊 500+ talents traités automatiquement" data-en="📊 500+ talents processed automatically">📊 500+ talents traités automatiquement</li>
+                            <li data-fr="⚡ Notifications en temps réel" data-en="⚡ Real-time notifications to the team">⚡ Notifications en temps réel</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">Telegram API</span>
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">Google Sheets</span>
+                    </div>
+                </div>
+
+                <!-- 3. Automatisation LinkedIn -->
+                <div class="project-card">
+                    <h3>🚀 <span data-fr="Automatisation LinkedIn avec IA" data-en="LinkedIn Automation with AI">Automatisation LinkedIn avec IA</span></h3>
+                    <p><strong data-fr="Projet :" data-en="Project:">Projet :</strong> <span data-fr="Système d'automatisation complet pour publication LinkedIn" data-en="Complete automation system for LinkedIn posting">Système d'automatisation complet pour publication LinkedIn</span></p>
+                    <p><strong data-fr="Défi :" data-en="Challenge:">Défi :</strong> <span data-fr="Permettre aux entrepreneurs de maintenir une présence LinkedIn active sans y passer 5h/semaine" data-en="Enable entrepreneurs to maintain active LinkedIn presence without spending 5h/week">Permettre aux entrepreneurs de maintenir une présence LinkedIn active sans y passer 5h/semaine</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Workflow N8N qui génère automatiquement 5 posts LinkedIn par semaine avec OpenAI, adaptés au secteur et à l'expertise du client. Publication automatique programmée via l'API LinkedIn officielle." data-en="N8N workflow that automatically generates 5 LinkedIn posts per week with OpenAI, tailored to client's sector and expertise. Automated scheduled posting via official LinkedIn API.">Workflow N8N qui génère automatiquement 5 posts LinkedIn par semaine avec OpenAI, adaptés au secteur et à l'expertise du client. Publication automatique programmée via l'API LinkedIn officielle.</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Fonctionnalités :" data-en="Features:">Fonctionnalités :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="📅 5 posts/semaine publiés automatiquement" data-en="📅 5 posts/week published automatically">📅 5 posts/semaine publiés automatiquement</li>
+                            <li data-fr="🤖 Contenu généré par OpenAI" data-en="🤖 Content generated by OpenAI">🤖 Contenu généré par OpenAI</li>
+                            <li data-fr="🎯 50 thèmes personnalisables par secteur" data-en="🎯 50 customizable themes per sector">🎯 50 thèmes personnalisables par secteur</li>
+                            <li data-fr="📊 Configuration via Google Sheets" data-en="📊 Configuration via Google Sheets">📊 Configuration via Google Sheets</li>
+                            <li data-fr="🔒 API LinkedIn officielle (sécurisé)" data-en="🔒 Official LinkedIn API (secure)">🔒 API LinkedIn officielle (sécurisé)</li>
+                        </ul>
+                    </div>
+
+                    <div class="results">
+                        <strong data-fr="Résultats clients :" data-en="Client Results:">Résultats clients :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="✅ 5h/semaine économisées" data-en="✅ 5h/week saved">✅ 5h/semaine économisées</li>
+                            <li data-fr="✅ +300% d'engagement moyen" data-en="✅ +300% average engagement">✅ +300% d'engagement moyen</li>
+                            <li data-fr="✅ Présence LinkedIn constante" data-en="✅ Consistent LinkedIn presence">✅ Présence LinkedIn constante</li>
+                            <li data-fr="✅ ROI en 1 mois (temps économisé)" data-en="✅ ROI in 1 month (time saved)">✅ ROI en 1 mois (temps économisé)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">OpenAI</span>
+                        <span class="tech-badge">LinkedIn API</span>
+                        <span class="tech-badge">Google Sheets</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+
+                    <div class="video-container">
+                        <iframe src="https://www.loom.com/embed/bc17f9547110440d85c68d99c563d9a0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- 4. Agent Vocal IA -->
+                <div class="project-card">
+                    <h3>📞 <span data-fr="Agent Vocal IA pour TPE/PME" data-en="AI Voice Agent for SMBs">Agent Vocal IA pour TPE/PME</span></h3>
+                    <p><strong data-fr="Projet :" data-en="Project:">Projet :</strong> <span data-fr="Assistant vocal intelligent 24/7" data-en="Intelligent voice assistant 24/7">Assistant vocal intelligent 24/7</span></p>
+                    <p><strong data-fr="Défi :" data-en="Challenge:">Défi :</strong> <span data-fr="Les TPE/PME perdent 30% de leurs appels car elles sont occupées avec des clients" data-en="SMBs lose 30% of calls because they're busy with customers">Les TPE/PME perdent 30% de leurs appels car elles sont occupées avec des clients</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Assistant vocal IA qui répond aux appels 24/7 et prend les rendez-vous automatiquement dans Google Calendar. Conçu pour les TPE/PME (salons de coiffure, instituts de beauté, artisans, cabinets médicaux, etc.)." data-en="AI voice assistant that answers calls 24/7 and automatically books appointments in Google Calendar. Designed for SMBs (hair salons, beauty institutes, tradespeople, medical practices, etc.).">Assistant vocal IA qui répond aux appels 24/7 et prend les rendez-vous automatiquement dans Google Calendar. Conçu pour les TPE/PME (salons de coiffure, instituts de beauté, artisans, cabinets médicaux, etc.).</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Résultats :" data-en="Results:">Résultats :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="✅ 0% d'appels manqués" data-en="✅ 0% missed calls">✅ 0% d'appels manqués</li>
+                            <li data-fr="✅ +30% de réservations" data-en="✅ +30% bookings">✅ +30% de réservations</li>
+                            <li data-fr="✅ 10h/semaine économisées" data-en="✅ 10h/week saved">✅ 10h/semaine économisées</li>
+                            <li data-fr="✅ Retour sur investissement rapide" data-en="✅ Fast return on investment">✅ Retour sur investissement rapide</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">ElevenLabs</span>
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">Google Calendar</span>
+                    </div>
+
+                    <div class="video-container">
+                        <iframe src="https://www.loom.com/embed/079a73f6c8d34fd18390a5db2492c8c1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- 4. Blackjack Bot (descendu en 4ème position) -->
+                <div class="project-card">
+                    <h3>♠️♥️♦️♣️ <span data-fr="Bot Blackjack avec Telegram Stars ⭐" data-en="Blackjack Bot with Telegram Stars ⭐">Bot Blackjack avec Telegram Stars ⭐</span></h3>
+                    <p><strong data-fr="Projet :" data-en="Project:">Projet :</strong> <span data-fr="Bot de jeu avec système de paiement intégré" data-en="Gaming bot with integrated payment system">Bot de jeu avec système de paiement intégré</span></p>
+                    <p><strong data-fr="Défi :" data-en="Challenge:">Défi :</strong> <span data-fr="Créer une expérience de jeu fluide avec paiement intégré via Telegram Stars ⭐" data-en="Create a seamless gaming experience with integrated payment via Telegram Stars ⭐">Créer une expérience de jeu fluide avec paiement intégré via Telegram Stars ⭐</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Bot Blackjack avec Web App. Achat unique donnant accès à des jetons illimités qui se rechargent automatiquement. Les joueurs jouent en temps réel." data-en="Blackjack bot with Web App. Single purchase gives access to unlimited tokens that recharge automatically. Players play in real-time.">Bot Blackjack avec Web App. Achat unique donnant accès à des jetons illimités qui se rechargent automatiquement. Les joueurs jouent en temps réel.</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Fonctionnalités :" data-en="Features:">Fonctionnalités :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="⭐ Paiement Telegram Stars ⭐ intégré" data-en="⭐ Telegram Stars ⭐ payment integration">⭐ Paiement Telegram Stars ⭐ intégré</li>
+                            <li data-fr="🎰 Jeu Blackjack en temps réel" data-en="🎰 Real-time Blackjack gameplay">🎰 Jeu Blackjack en temps réel</li>
+                            <li data-fr="🪙 Jetons illimités à recharge automatique" data-en="🪙 Unlimited auto-recharging tokens">🪙 Jetons illimités à recharge automatique</li>
+                            <li data-fr="📊 Suivi des parties" data-en="📊 Game tracking">📊 Suivi des parties</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">HTML</span>
+                        <span class="tech-badge">Telegram API</span>
+                        <span class="tech-badge">Telegram Stars ⭐</span>
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">Google Sheets</span>
+                    </div>
+                </div>
+
+                <!-- 4. Bot Recrutement -->
+                <div class="project-card">
+                    <h3>🎓 <span data-fr="Bot de Recrutement avec Telegram Stars ⭐" data-en="Recruitment Bot with Telegram Stars ⭐">Bot de Recrutement avec Telegram Stars ⭐</span></h3>
+                    <p><strong data-fr="Projet :" data-en="Project:">Projet :</strong> <span data-fr="Initiative personnelle pour aider les étudiants" data-en="Personal initiative to help students">Initiative personnelle pour aider les étudiants</span></p>
+                    <p><strong data-fr="Objectif :" data-en="Objective:">Objectif :</strong> <span data-fr="Aider les étudiants à améliorer leurs compétences de recrutement, booster leur CV, et trouver des stages et alternances" data-en="Help students improve their recruitment skills, boost their CV, and find internships and work-study programs">Aider les étudiants à améliorer leurs compétences de recrutement, booster leur CV, et trouver des stages et alternances</span></p>
+                    <p><strong data-fr="Solution :" data-en="Solution:">Solution :</strong> <span data-fr="Bot Telegram avec accès premium payant via Telegram Stars ⭐ offrant coaching CV, préparation aux entretiens, et ressources exclusives" data-en="Telegram bot with premium paid access via Telegram Stars ⭐ offering CV coaching, interview preparation, and exclusive resources">Bot Telegram avec accès premium payant via Telegram Stars ⭐ offrant coaching CV, préparation aux entretiens, et ressources exclusives</span></p>
+                    
+                    <div class="results">
+                        <strong data-fr="Fonctionnalités :" data-en="Features:">Fonctionnalités :</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li data-fr="⭐ Paiement Telegram Stars ⭐ intégré" data-en="⭐ Telegram Stars ⭐ payment integration">⭐ Paiement Telegram Stars ⭐ intégré</li>
+                            <li data-fr="📝 Analyse et amélioration de CV" data-en="📝 CV analysis and improvement">📝 Analyse et amélioration de CV</li>
+                            <li data-fr="🎯 Préparation aux entretiens" data-en="🎯 Interview preparation">🎯 Préparation aux entretiens</li>
+                            <li data-fr="💼 Ressources stages & alternances" data-en="💼 Internship & work-study resources">💼 Ressources stages & alternances</li>
+                        </ul>
+                    </div>
+
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Telegram API</span>
+                        <span class="tech-badge">Telegram Stars ⭐</span>
+                        <span class="tech-badge">N8N</span>
+                        <span class="tech-badge">Google Sheets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f7fafc; padding: 80px 0;">
+        <div class="container">
+            <h2 class="testimonial-title" data-fr="💬 Témoignages Clients" data-en="💬 Client Testimonials">💬 Témoignages Clients</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
+                
+                <!-- Témoignage Simon Goldstein -->
+                <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="margin: 0 0 10px 0; color: #2d3748; font-size: 1.3rem;">Simon Goldstein</h3>
+                        <p style="margin: 5px 0; color: #667eea; font-weight: 600;">Fondateur, MITPROSA</p>
+                        <p style="margin: 0; color: #718096; font-size: 0.95rem;">Analyste Commercial Mitprosa</p>
+                    </div>
+                    
+                    <div style="border-left: 4px solid #667eea; padding-left: 20px; margin: 25px 0;">
+                        <p class="testimonial-text-simon" data-fr="« Je recommande Maxime pour son professionnalisme et sa réactivité.<br><br>Projet complet réalisé pour MITPROSA : automatisation N8N qui génère et publie automatiquement 3 articles par semaine sur l'horlogerie de prestige + configuration WordPress optimisée pour recevoir ces publications.<br><br>Le système fonctionne de manière autonome. Notre blog est maintenant alimenté automatiquement sans aucune intervention de notre part.<br><br>Livraison rapide et accompagnement clair. Merci Maxime ! »" data-en="« I recommend Maxime for his professionalism and responsiveness.<br><br>Complete project realized for MITPROSA: N8N automation that generates and publishes 3 articles per week automatically on luxury watches + optimized WordPress setup.<br><br>The system works autonomously. Our blog is now fed automatically without any intervention.<br><br>Fast delivery and clear support. Thanks Maxime! »" style="font-size: 1.15rem; line-height: 1.8; color: #2d3748; font-style: italic; margin: 0;">
+                            « Je recommande Maxime pour son professionnalisme et sa réactivité.<br><br>Projet complet réalisé pour MITPROSA : automatisation N8N qui génère et publie automatiquement 3 articles par semaine sur l'horlogerie de prestige + configuration WordPress optimisée pour recevoir ces publications.<br><br>Le système fonctionne de manière autonome. Notre blog est maintenant alimenté automatiquement sans aucune intervention de notre part.<br><br>Livraison rapide et accompagnement clair. Merci Maxime ! »
+                        </p>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+                        <svg style="width: 24px; height: 24px; fill: #0077b5;" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span class="linkedin-verified-simon" data-fr="Recommandation LinkedIn Vérifiée • 21 janvier 2026" data-en="Verified LinkedIn Recommendation • January 21, 2026" style="color: #718096; font-size: 0.9rem;">Recommandation LinkedIn Vérifiée • 21 janvier 2026</span>
+                    </div>
+                </div>
+
+                <!-- Témoignage Nicolas Goldstein -->
+                <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEJLxvH8_5vPw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729866316294?e=1736985600&v=beta&t=8QxL0KLrP9KxJQC0xI0vYxGQRqQxLqKGN8HYxQxQxQx" 
+                             alt="Nicolas Goldstein" 
+                             style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h3 style="margin: 0; color: #2d3748; font-size: 1.3rem;">Nicolas Goldstein</h3>
+                            <p style="margin: 5px 0; color: #667eea; font-weight: 600;">Co-founder & CEO, Talenteum.com</p>
+                            <p style="margin: 0; color: #718096; font-size: 0.95rem;">HR Tech | French Tech Mauritius</p>
+                        </div>
+                    </div>
+                    
+                    <div style="border-left: 4px solid #667eea; padding-left: 20px; margin: 25px 0;">
+                        <p class="testimonial-text" data-fr="« Je recommande Maxime.<br><br>Livraison rapide et professionnelle - Bot fonctionnel avec screening automatisé (22 questions, scoring, sync Google Sheets) - Communication claire tout au long du projet.<br><br>Merci encore Maxime ! »" data-en="« I recommend Maxime.<br><br>Fast and professional delivery - Functional bot with automated screening (22 questions, scoring, Google Sheets sync) - Clear communication throughout the project.<br><br>Thanks again Maxime! »" style="font-size: 1.15rem; line-height: 1.8; color: #2d3748; font-style: italic; margin: 0;">
+                            « Je recommande Maxime.<br><br>Livraison rapide et professionnelle - Bot fonctionnel avec screening automatisé (22 questions, scoring, sync Google Sheets) - Communication claire tout au long du projet.<br><br>Merci encore Maxime ! »
+                        </p>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+                        <svg style="width: 24px; height: 24px; fill: #0077b5;" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <span class="linkedin-verified" data-fr="Recommandation LinkedIn Vérifiée • 25 octobre 2025" data-en="Verified LinkedIn Recommendation • October 25, 2025" style="color: #718096; font-size: 0.9rem;">Recommandation LinkedIn Vérifiée • 25 octobre 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <div class="container">
+            <h2 class="cta-title" data-fr="Prêt à Automatiser Votre Entreprise ?" data-en="Ready to Automate Your Business?">Prêt à Automatiser Votre Entreprise ?</h2>
+            <p class="cta-text" data-fr="Discutons de comment je peux vous aider à gagner du temps et développer vos opérations" data-en="Let's discuss how I can help you save time and scale your operations">Discutons de comment je peux vous aider à gagner du temps et développer vos opérations</p>
+            <a href="/cdn-cgi/l/email-protection#d8b5b9a0b1b5bdf6bfb7b4bcabacbdb1b698b5b9a0b9adacb7b6e0b6f6bbb7b5" class="cta-button" data-fr="Me Contacter" data-en="Get in Touch">Me Contacter</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Maxime Goldstein - <span data-fr="Spécialiste Automation & IA" data-en="Automation & AI Specialist">Spécialiste Automation & IA</span></p>
+            <p style="margin-top: 10px;">
+                <a href="/cdn-cgi/l/email-protection#eb868a9382868ec58c84878f989f8e8285ab868a938a9e9f8485d385c5888486" style="color: #fff; text-decoration: none;"><span class="__cf_email__" data-cfemail="d7bab6afbebab2f9b0b8bbb3a4a3b2beb997bab6afb6a2a3b8b9efb9f9b4b8ba">[email&#160;protected]</span></a> | 
+                <a href="https://www.linkedin.com/in/maxime-goldstein-313265322" target="_blank" style="color: #fff; text-decoration: none;">LinkedIn</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 1.1rem;">
+                🇫🇷 Paris, France
+            </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        let currentLang = 'fr';
+
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-fr][data-en]').forEach(el => 
