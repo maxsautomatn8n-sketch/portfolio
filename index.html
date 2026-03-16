@@ -259,7 +259,7 @@
             <p class="subtitle" data-fr="Spécialiste Automation & IA | Bots Telegram | Workflows N8N" data-en="Automation & AI Specialist | Telegram Bots | N8N Workflows">Spécialiste Automation & IA | Bots Telegram | Workflows N8N</p>
             <p class="tagline" data-fr="J'aide les entreprises à économiser 10-20 heures par semaine en automatisant leurs processus" data-en="I help businesses save 10-20 hours per week by automating their processes" style="font-size: 1.1rem;">J'aide les entreprises à économiser 10-20 heures par semaine en automatisant leurs processus</p>
             <div class="contact-links">
-                <a href="/cdn-cgi/l/email-protection#177a766f7e7a723970787b736463727e79577a766f76626378792f793974787a">📧 Email</a>
+                <a href="mailto:maxime.goldstein@maxauton8n.com">📧 Email</a>
                 <a href="https://www.linkedin.com/in/maxime-goldstein-313265322" target="_blank">💼 LinkedIn</a>
             </div>
         </div>
@@ -523,12 +523,12 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         let currentLang = 'fr';
 
         function switchLang(lang) {
             currentLang = lang;
-            
+
             // Update active button
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -538,4 +538,13 @@
             });
 
             // Update all translatable elements
-            document.
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                const text = el.getAttribute('data-' + lang);
+                if (text !== null) {
+                    el.innerHTML = text;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
