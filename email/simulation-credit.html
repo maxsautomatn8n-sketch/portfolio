@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  credit-on-line.com — Email transactionnel : simulation crédit
+  ============================================================
+  AVANT ENVOI : remplacer l'URL du logo ci-dessous par l'URL
+  réelle hébergée sur votre serveur/CDN.
+  Chemin actuel (placeholder) :
+    https://www.credit-on-line.com/assets/img/logo-col.png
+  ============================================================
+-->
+<html lang="fr"
+      xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8">
+  <!-- Force IE/Outlook to use its latest rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Prevents auto-linking of phone numbers, dates, addresses -->
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <!-- Subject-line fallback shown in some clients -->
+  <title>Votre simulation de crédit est prête</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <!--
+    Web fonts: load before body to reduce FOUT.
+    Note: Outlook Desktop ignores web fonts and falls back
+    to Arial — this is expected behaviour.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Reset ---------- */
+    body, table, td, a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust:     100%;
+    }
+    /* Remove Outlook cell spacing */
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    /* Fix image scaling in IE */
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+    /* Prevent Apple Mail from styling detected data */
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+    }
+    /* Outlook dark-mode guard: keep brand bg */
+    [data-ogsc] body,
+    [data-ogsb] body {
+      background-color: #FAFFE3 !important;
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#FAFFE3;
+             font-family:'Manrope',Arial,sans-serif;
+             -webkit-text-size-adjust:100%;-ms-text-size-adjust:100%">
+
+  <!--
+    Preheader — shown in inbox preview, hidden in the email body.
+    • mso-hide:all  → Outlook hides the div entirely
+    • &zwnj; chain → prevents preview from spilling into body copy
+  -->
+  <div style="display:none;max-height:0;overflow:hidden;
+              mso-hide:all;font-size:1px;line-height:1px;
+              color:#FAFFE3" aria-hidden="true">
+    Bonjour {{first_name}}, votre simulation personnalis&eacute;e est pr&ecirc;te. Acc&eacute;dez-y maintenant, sans engagement.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+
+  <!-- ============================================================
+       Outer wrapper — full-width background
+  ============================================================ -->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+         border="0"
+         style="background-color:#FAFFE3;padding:30px 0;
+                mso-table-lspace:0pt;mso-table-rspace:0pt;
+                border-collapse:collapse">
+    <tr>
+      <td align="center" style="padding:0">
+
+        <!--
+          MSO conditional wrapper: Outlook ignores max-width CSS on tables,
+          so we lock the width with a conditional table for Outlook clients.
+        -->
+        <!--[if mso]>
+        <table role="presentation" width="580" cellpadding="0" cellspacing="0" border="0">
+          <tr><td>
+        <![endif]-->
+
+        <!-- ============================================================
+             Main card — 580 px, white background
+        ============================================================ -->
+        <table role="presentation"
+               width="580"
+               cellpadding="0" cellspacing="0" border="0"
+               style="width:100%;max-width:580px;
+                      background:#ffffff;
+                      border-radius:12px;
+                      border:1px solid #CCFFCC;
+                      mso-table-lspace:0pt;mso-table-rspace:0pt;
+                      border-collapse:collapse">
+
+          <!-- ── Header: logo ───────────────────────────────────── -->
+          <tr>
+            <td style="background:#ffffff;
+                       padding:28px 30px 20px;
+                       text-align:center;
+                       border-bottom:4px solid #FC9A18">
+              <!--
+                IMPORTANT: this must be a publicly hosted URL.
+                A base64 data URI is a strong spam signal for Outlook /
+                Microsoft Defender and will drastically hurt delivery rates.
+                Replace the src below with your CDN or server URL.
+              -->
+              <img src="https://www.credit-on-line.com/assets/img/logo-col.png"
+                   alt="credit-on-line — Comparer pour mieux consommer"
+                   width="220"
+                   height="auto"
+                   style="display:block;margin:0 auto;
+                          border:0;outline:none;text-decoration:none;
+                          -ms-interpolation-mode:bicubic">
+            </td>
+          </tr>
+
+          <!-- ── Tagline banner (dark green) ──────────────────────── -->
+          <tr>
+            <td style="background:#2D582C;
+                       padding:14px 30px;
+                       text-align:center">
+              <span style="font-family:'Manrope',Arial,sans-serif;
+                           font-size:13px;
+                           color:#CCFFCC;
+                           font-style:italic;
+                           letter-spacing:0.3px;
+                           mso-line-height-rule:exactly">
+                Premier comparateur de cr&eacute;dit en ligne depuis&nbsp;1998
+              </span>
+            </td>
+          </tr>
+
+          <!-- ── Body copy ─────────────────────────────────────────── -->
+          <tr>
+            <td style="padding:36px 36px 28px">
+
+              <!-- Salutation -->
+              <p style="font-family:'Istok Web',Arial,sans-serif;
+                        font-size:17px;font-weight:700;
+                        color:#2D582C;margin:0 0 18px;
+                        mso-line-height-rule:exactly">
+                Bonjour&nbsp;{{first_name}},
+              </p>
+
+              <!-- Para 1 -->
+              <p style="font-family:'Manrope',Arial,sans-serif;
+                        font-size:14px;color:#2B212D;
+                        line-height:1.85;margin:0 0 16px;
+                        mso-line-height-rule:exactly">
+                Suite &agrave; votre demande sur
+                <strong>credit-on-line.com</strong>,
+                nos conseillers ont examin&eacute; les offres disponibles
+                aupr&egrave;s de nos partenaires bancaires.
+              </p>
+
+              <!-- Para 2 -->
+              <p style="font-family:'Manrope',Arial,sans-serif;
+                        font-size:14px;color:#2B212D;
+                        line-height:1.85;margin:0 0 32px;
+                        mso-line-height-rule:exactly">
+                Votre simulation personnalis&eacute;e est pr&ecirc;te.
+                Acc&eacute;dez-y en quelques secondes, sans engagement.
+              </p>
+
+              <!-- ── CTA button ─────────────────────────────────── -->
+              <!--
+                Dual-rendering strategy:
+                • Outlook (MSO): VML v:roundrect — renders a real
+                  rounded rectangle natively in Word engine.
+                • All other clients: standard <a> with CSS.
+              -->
+              <table role="presentation" width="100%"
+                     cellpadding="0" cellspacing="0" border="0"
+                     style="margin:0 0 32px;
+                            mso-table-lspace:0pt;mso-table-rspace:0pt;
+                            border-collapse:collapse">
+                <tr>
+                  <td align="center" style="padding:0">
+
+                    <!--[if mso]>
+                    <v:roundrect
+                      xmlns:v="urn:schemas-microsoft-com:vml"
+                      xmlns:w="urn:schemas-microsoft-com:office:word"
+                      href="https://www.credit-on-line.com/simulation-credit"
+                      style="height:56px;v-text-anchor:middle;width:288px;"
+                      arcsize="14%"
+                      stroke="f"
+                      fillcolor="#2D582C">
+                      <w:anchorlock/>
+                      <center style="color:#ffffff;
+                                     font-family:Arial,sans-serif;
+                                     font-size:17px;font-weight:bold;
+                                     letter-spacing:0.3px">
+                        Acc&eacute;der &agrave; ma simulation &#8594;
+                      </center>
+                    </v:roundrect>
+                    <![endif]-->
+
+                    <!--[if !mso]><!-->
+                    <a href="https://www.credit-on-line.com/simulation-credit"
+                       style="display:inline-block;
+                              font-family:'Istok Web',Arial,sans-serif;
+                              font-size:17px;font-weight:700;
+                              color:#ffffff;
+                              background-color:#2D582C;
+                              text-decoration:none;
+                              padding:18px 48px;
+                              border-radius:8px;
+                              letter-spacing:0.3px;
+                              mso-padding-alt:0;
+                              border:2px solid #2D582C">
+                      Acc&eacute;der &agrave; ma simulation &rarr;
+                    </a>
+                    <!--<![endif]-->
+
+                  </td>
+                </tr>
+              </table>
+
+              <!-- ── Trust-badge strip ──────────────────────────── -->
+              <table role="presentation" width="100%"
+                     cellpadding="0" cellspacing="0" border="0"
+                     style="margin:0 0 28px;
+                            mso-table-lspace:0pt;mso-table-rspace:0pt;
+                            border-collapse:collapse">
+                <tr>
+                  <td style="background:#FAFFE3;
+                             border-left:4px solid #F9C900;
+                             padding:14px 18px">
+                    <p style="font-family:'Manrope',Arial,sans-serif;
+                              font-size:13px;color:#2D582C;
+                              margin:0;line-height:1.7;
+                              mso-line-height-rule:exactly">
+                      &#10003;&nbsp;&nbsp;<strong>Gratuit</strong>
+                      &nbsp;&middot;&nbsp;
+                      &#10003;&nbsp;&nbsp;<strong>Sans engagement</strong>
+                      &nbsp;&middot;&nbsp;
+                      &#10003;&nbsp;&nbsp;<strong>R&eacute;ponse de principe imm&eacute;diate</strong>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Signature -->
+              <p style="font-family:'Manrope',Arial,sans-serif;
+                        font-size:14px;color:#2B212D;
+                        line-height:1.6;margin:0 0 6px;
+                        mso-line-height-rule:exactly">
+                N&#39;h&eacute;sitez pas &agrave; nous contacter si vous avez des questions.
+              </p>
+              <p style="font-family:'Manrope',Arial,sans-serif;
+                        font-size:14px;color:#2B212D;
+                        margin:16px 0 0;line-height:1.6;
+                        mso-line-height-rule:exactly">
+                Cordialement,<br>
+                <strong style="font-family:'Istok Web',Arial,sans-serif;
+                               color:#2D582C;font-size:15px">
+                  L&#39;&eacute;quipe credit-on-line
+                </strong><br>
+                <span style="font-size:12px;color:#888888">credit-on-line.com</span>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- ── Orange separator ──────────────────────────────────── -->
+          <tr>
+            <td style="background:#FC9A18;
+                       height:4px;
+                       font-size:0;line-height:4px;
+                       mso-line-height-rule:exactly">&nbsp;</td>
+          </tr>
+
+          <!-- ── Footer (dark green) ───────────────────────────────── -->
+          <tr>
+            <td style="background:#2D582C;padding:18px 30px">
+              <p style="font-family:'Manrope',Arial,sans-serif;
+                        font-size:11px;color:#CCFFCC;
+                        margin:0;line-height:1.8;
+                        text-align:center;
+                        mso-line-height-rule:exactly">
+                Vous recevez cet email car vous avez effectu&eacute; une
+                demande sur credit-on-line.com.<br>
+                <a href="%unsubscribe_url%"
+                   style="color:#F9C900;text-decoration:underline;
+                          font-size:11px">
+                  Se d&eacute;sinscrire
+                </a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://www.credit-on-line.com"
+                   style="color:#CCFFCC;text-decoration:none;
+                          font-size:11px">
+                  credit-on-line.com
+                </a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /main card -->
+
+        <!--[if mso]>
+          </td></tr>
+        </table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
